@@ -4,7 +4,7 @@ alert("Bienvenido a materos, tenemos un producto para cada necesidad. Mates, ter
 class Productos{
     constructor(categoria, precio, tipo){
         this.categoria=categoria;
-        this.precio=precio;
+        this.precio=parseInt(precio);
         this.tipo=tipo;
     }
     sumarIva(){
@@ -14,24 +14,25 @@ class Productos{
 
 //creacion de productos con sus caracteristicas
 
-producto1 = new Productos("mate", 1000, "mate de calabaza");
-producto2 = new Productos("mate", 2500, "mate de madera");
-producto3 = new Productos("mate", 4000, "mate de grande");
-producto4 = new Productos("mate", 5800, "mate de chico");
-producto5 = new Productos("termo", 8000, "mate de cuero");
-producto6 = new Productos("termo", 9000, "termo 1.5l");
-producto7 = new Productos("termo", 8500, "termo 1l");
-producto8 = new Productos("termo", 5000, "termo economico");
-producto9 = new Productos("termo", 7800, "termo con pico");
-producto10 = new Productos("termo", 6000, "termo economico 1.5");
-producto11 = new Productos("mochila", 12000, "mochila grande");
-producto12 = new Productos("mochila", 10000, "mochila chica");
-producto13 = new Productos("mochila", 13500, "mochila grande con bolcillo");
-producto14 = new Productos("mochila", 15000, "mochila grande roja");
-producto15 = new Productos("mochila", 18000, "mochila grande azul");
+const producto1 = new Productos("mates", 1000, "mate de calabaza");
+const producto2 = new Productos("mates", 2500, "mate de madera");
+const producto3 = new Productos("mates", 4000, "mate de grande");
+const producto4 = new Productos("mates", 5800, "mate de chico");
+const producto5 = new Productos("termos", 8000, "mate de cuero");
+const producto6 = new Productos("termos", 9000, "termo 1.5l");
+const producto7 = new Productos("termos", 8500, "termo 1l");
+const producto8 = new Productos("termos", 5000, "termo economico");
+const producto9 = new Productos("termos", 7800, "termo con pico");
+const producto10 = new Productos("termos", 6000, "termo economico 1.5");
+const producto11 = new Productos("mochilas", 12000, "mochila grande");
+const producto12 = new Productos("mochilas", 10000, "mochila chica");
+const producto13 = new Productos("mochilas", 13500, "mochila grande con bolcillo");
+const producto14 = new Productos("mochilas", 15000, "mochila grande roja");
+const producto15 = new Productos("mochilas", 18000, "mochila grande azul");
 
 //se crea un array para almacenar todos los productos.
-stock=[];
+
+const stock=[];
 stock.push(producto1, producto2, producto3, producto4, producto5,
      producto6,producto7,producto8,producto9,producto10,producto11,
      producto12,producto13,producto14,producto15);
@@ -41,34 +42,94 @@ for (const productos of stock){
     productos.sumarIva();
 }
 
-let seleccion= prompt("seleccione un producto. Mate, termo, mochila");
-alert("Usted selecciono: " + seleccion);
-let mostrar = stock.filter(productos=>productos.categoria==seleccion);
+//dependiendo de lo que el usuario ingrese, hacemos un filtrado.
 
-console.log(mostrar);
+let selectCategories= prompt("seleccione un producto. mates, termos, mochilas");
+alert("Usted selecciono: " + selectCategories);
+let show = stock.filter(productos=>productos.categoria==selectCategories);
 
-comprarSeleccionados=[];//productos que el cliente quiere comprar.
+console.log("El resultdo de su busqueda es: ")
+console.log(show);//muestra los productos en base a lo que filtro el cliente
 
-do{
+const buySelect=[];//almacenamos los productos que el cliente quiere comprar.
 
-    if(seleccion=="mate"){
-        again=""
-        do{
-            alert("de acuerdo al filtado agrege los productos que desee")
-            
+if(selectCategories=="mates"){
+    again="";
+    do{
 
-        }while(again!="no")
-
-
+        select=prompt("Ingrese un producto. (1,2,3,4)");
         
-    }else if(seleccion=="termo"){
+        if(select=="1"){
+            buySelect.push(producto1);
+        }else if(select=="2"){
+            buySelect.push(producto2);
+        }else if(select=="3"){
+            buySelect.push(producto3);
+        }else if(select=="4"){
+            buySelect.push(producto4);
+        }
 
-    }else if(seleccion=="mochila"){
+        again=prompt("desea agregar otro mate, escriba si o no");
 
-    }
-}while(again="salir");
+    }while(again!="no")
 
+}else if(selectCategories=="termos"){
+    again="";
+    do{
+        
+        select=prompt("Ingrese un producto. (5,6,7,8,9,10)");
+        
+        if(select=="5"){
+            buySelect.push(producto5);
+        }else if(select=="6"){
+            buySelect.push(producto6);
+        }else if(select=="7"){
+            buySelect.push(producto7);
+        }else if(select=="8"){
+            buySelects.push(producto8);
+        }else if(select=="9"){
+            buySelects.push(producto9);
+        }else if(select=="10"){
+            buySelect.push(producto10);
+        }
 
+        again=prompt("desea agregar otro termo, escriba si o no");
+
+    }while(again!="no")
+
+}else if(selectCategories=="mochilas"){
+    again="";
+
+    do{
+        select=prompt("Ingrese un producto. (11, 12, 13, 14, 15)");
+        
+        if(select=="11"){
+            buySelect.push(producto11);
+        }else if(select=="12"){
+            buySelect.push(producto12);
+        }else if(select=="13"){
+            buySelect.push(producto13);
+        }else if(select=="14"){
+            buySelect.push(producto14);
+        }else if(select=="15"){
+            buySelect.push(producto15);
+        }
+
+        again=prompt("desea agregar otra mochila, escriba si o no");
+        
+    }while(again!="no")
+}
+
+//mostramos los productos que selecciono
+console.log("usted va compra los siguientes productos");
+console.log(buySelect);
+
+//tomamos el valor de los objetos que selecciono el usuario y le mostramos un total de su compra
+total="";
+for (const costo of buySelect){
+    total=parseInt(total+costo.precio);
+}
+console.log("El total de su compra es de: "+total);
 
 
 
