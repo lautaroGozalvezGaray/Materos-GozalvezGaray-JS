@@ -140,7 +140,7 @@ for (const costo of buySelect){
     total=parseInt(total+costo.precio);
 }
 
-console.log("El total de su compra es de: $"+ total);
+alert("El total de su compra es de: $"+ total);
 
 
 
