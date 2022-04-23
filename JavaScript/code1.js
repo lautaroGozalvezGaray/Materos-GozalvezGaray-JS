@@ -42,83 +42,93 @@ for (const productos of stock){
     productos.sumarIva();
 }
 
-//dependiendo de lo que el usuario ingrese, hacemos un filtrado.
-
-let selectCategories= prompt("seleccione un producto. mates, termos, mochilas");
-alert("Usted selecciono: " + selectCategories);
-let show = stock.filter(productos=>productos.categoria==selectCategories);
-
-console.log("El resultdo de su busqueda es: ")
-console.log(show);//muestra los productos en base a lo que filtro el cliente
+let newSearch="";
 
 const buySelect=[];//almacenamos los productos que el cliente quiere comprar.
 
-if(selectCategories=="mates"){
-    again="";
-    do{
+do{
+    
+    //dependiendo de lo que el usuario ingrese, hacemos un filtrado.
+    
+    let selectCategories= prompt("seleccione un producto. mates, termos, mochilas");
+    alert("Usted selecciono: " + selectCategories);
+    let show = stock.filter(productos=>productos.categoria==selectCategories);
 
-        select=prompt("Ingrese un producto. (1,2,3,4)");
-        
-        if(select=="1"){
-            buySelect.push(producto1);
-        }else if(select=="2"){
-            buySelect.push(producto2);
-        }else if(select=="3"){
-            buySelect.push(producto3);
-        }else if(select=="4"){
-            buySelect.push(producto4);
-        }
+    console.log("El resultdo de su busqueda es: ")
+    console.log(show);//muestra los productos en base a lo que filtro el cliente
 
-        again=prompt("desea agregar otro mate, escriba si o no");
 
-    }while(again!="no")
 
-}else if(selectCategories=="termos"){
-    again="";
-    do{
-        
-        select=prompt("Ingrese un producto. (5,6,7,8,9,10)");
-        
-        if(select=="5"){
-            buySelect.push(producto5);
-        }else if(select=="6"){
-            buySelect.push(producto6);
-        }else if(select=="7"){
-            buySelect.push(producto7);
-        }else if(select=="8"){
-            buySelects.push(producto8);
-        }else if(select=="9"){
-            buySelects.push(producto9);
-        }else if(select=="10"){
-            buySelect.push(producto10);
-        }
+    if(selectCategories=="mates"){
+        again="";
+        do{
 
-        again=prompt("desea agregar otro termo, escriba si o no");
+            select=prompt("Ingrese un producto. (1,2,3,4)");
+            
+            if(select=="1"){
+                buySelect.push(producto1);
+            }else if(select=="2"){
+                buySelect.push(producto2);
+            }else if(select=="3"){
+                buySelect.push(producto3);
+            }else if(select=="4"){
+                buySelect.push(producto4);
+            }
 
-    }while(again!="no")
+            again=prompt("desea agregar otro mate, escriba si o no");
 
-}else if(selectCategories=="mochilas"){
-    again="";
+        }while(again!="no")
 
-    do{
-        select=prompt("Ingrese un producto. (11, 12, 13, 14, 15)");
-        
-        if(select=="11"){
-            buySelect.push(producto11);
-        }else if(select=="12"){
-            buySelect.push(producto12);
-        }else if(select=="13"){
-            buySelect.push(producto13);
-        }else if(select=="14"){
-            buySelect.push(producto14);
-        }else if(select=="15"){
-            buySelect.push(producto15);
-        }
+    }else if(selectCategories=="termos"){
+        again="";
+        do{
+            
+            select=prompt("Ingrese un producto. (5,6,7,8,9,10)");
+            
+            if(select=="5"){
+                buySelect.push(producto5);
+            }else if(select=="6"){
+                buySelect.push(producto6);
+            }else if(select=="7"){
+                buySelect.push(producto7);
+            }else if(select=="8"){
+                buySelect.push(producto8);
+            }else if(select=="9"){
+                buySelect.push(producto9);
+            }else if(select=="10"){
+                buySelect.push(producto10);
+            }
 
-        again=prompt("desea agregar otra mochila, escriba si o no");
-        
-    }while(again!="no")
-}
+            again=prompt("desea agregar otro termo, escriba si o no");
+
+        }while(again!="no")
+
+    }else if(selectCategories=="mochilas"){
+        again="";
+
+        do{
+            select=prompt("Ingrese un producto. (11, 12, 13, 14, 15)");
+            
+            if(select=="11"){
+                buySelect.push(producto11);
+            }else if(select=="12"){
+                buySelect.push(producto12);
+            }else if(select=="13"){
+                buySelect.push(producto13);
+            }else if(select=="14"){
+                buySelect.push(producto14);
+            }else if(select=="15"){
+                buySelect.push(producto15);
+            }
+
+            again=prompt("desea agregar otra mochila, escriba si o no");
+            
+        }while(again!="no")
+    }
+
+    newSearch=prompt("desea hacer una nueva busqueda? si / no ");
+
+}while(newSearch!="no");
 
 //mostramos los productos que selecciono
 console.log("usted va compra los siguientes productos");
