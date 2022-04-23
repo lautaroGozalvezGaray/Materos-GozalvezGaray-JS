@@ -49,8 +49,8 @@ const buySelect=[];//almacenamos los productos que el cliente quiere comprar.
 do{
     
     //dependiendo de lo que el usuario ingrese, hacemos un filtrado.
-    
-    let selectCategories= prompt("seleccione un producto. mates, termos, mochilas");
+
+    let selectCategories= prompt("seleccione la categoria: mates, termos, mochilas");
     alert("Usted selecciono: " + selectCategories);
     let show = stock.filter(productos=>productos.categoria==selectCategories);
 
@@ -75,7 +75,7 @@ do{
                 buySelect.push(producto4);
             }
 
-            again=prompt("desea agregar otro mate, escriba si o no");
+            again=prompt("desea agregar otro mate: si / no");
 
         }while(again!="no")
 
@@ -99,7 +99,7 @@ do{
                 buySelect.push(producto10);
             }
 
-            again=prompt("desea agregar otro termo, escriba si o no");
+            again=prompt("desea agregar otro termo: si / no");
 
         }while(again!="no")
 
@@ -121,7 +121,7 @@ do{
                 buySelect.push(producto15);
             }
 
-            again=prompt("desea agregar otra mochila, escriba si o no");
+            again=prompt("desea agregar otra mochila: si / no");
             
         }while(again!="no")
     }
@@ -131,7 +131,7 @@ do{
 }while(newSearch!="no");
 
 //mostramos los productos que selecciono
-console.log("usted va compra los siguientes productos");
+console.log("usted va compra los siguientes productos:");
 console.log(buySelect);
 
 //tomamos el valor de los objetos que selecciono el usuario y le mostramos un total de su compra
