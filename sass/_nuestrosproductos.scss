@@ -2,6 +2,19 @@
 /*DESKTOP*/
 @media (min-width: 1024px){
     .main{
+        .carrito{
+            text-align: center;
+            h4{
+                font-family: $fontAllPage;
+            }
+            li{
+                text-decoration: none;
+                list-style: none;
+                font-family: $fontAllPage;
+                padding: 0.9rem;
+            }
+              
+        }
         .titleAllProduct {
             display: flex;
             justify-content: center;
@@ -21,9 +34,6 @@
             }
         }
         .titleEachProduct {
-            /* display: flex;
-            flex-direction: row;
-            justify-content: center; */
             h2 {
               text-align: center;
               font-family: $fontAllPage;
@@ -93,9 +103,6 @@
             }
         }
         .titleEachProduct {
-            /* display: flex;
-            flex-direction: row;
-            justify-content: center; */
             h2 {
               text-align: center;
               font-family: $fontAllPage;
@@ -175,9 +182,6 @@
             }
         }
         .titleEachProduct {
-            /* display: flex;
-            flex-direction: row;
-            justify-content: center; */
             h2 {
               text-align: center;
               font-family: $fontAllPage;

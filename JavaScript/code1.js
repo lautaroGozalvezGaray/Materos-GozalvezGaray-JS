@@ -45,6 +45,7 @@ for (const productos of stock){
 let newSearch="";
 
 const buySelect=[];//almacenamos los productos que el cliente quiere comprar.
+let show=[];
 
 do{
     
@@ -52,7 +53,7 @@ do{
 
     let selectCategories= prompt("seleccione la categoria: mates, termos, mochilas");
     alert("Usted selecciono: " + selectCategories);
-    let show = stock.filter(productos=>productos.categoria==selectCategories);
+    show = stock.filter(productos=>productos.categoria==selectCategories);
 
     console.log("El resultdo de su busqueda es: ")
     console.log(show);//muestra los productos en base a lo que filtro el cliente
@@ -141,8 +142,31 @@ for (const costo of buySelect){
 }
 
 alert("El total de su compra es de: $"+ total);
+console.log("El total de su compra es de: $"+ total)
+
+const ul1 = document.getElementById("productoBuscados");
+
+show.forEach( (elemento) => {
+    // Crear elemento lista
+    const li = document.createElement("li");
+    li.innerHTML = `<strong>categoria</strong> ${elemento.categoria}, <strong>Monto: $</strong> ${elemento.precio}, <strong>tipo:</strong> ${elemento.tipo}`;
+    // Agregar nodo LI a UL
+    ul1.append(li);
+});
 
 
+const ul = document.getElementById("productoSeleccionados");
+
+buySelect.forEach( (elemento) => {
+    // Crear elemento lista
+    const li = document.createElement("li");
+    li.innerHTML = `<strong>categoria</strong> ${elemento.categoria}, <strong>Monto: $</strong> ${elemento.precio}, <strong>tipo:</strong> ${elemento.tipo}`;
+    // Agregar nodo LI a UL
+    ul.append(li);
+});
+
+let p = document.getElementById("total");
+p.innerText=`$ ${total}`;
 
 
 
