@@ -47,6 +47,7 @@ let newSearch="";
 const buySelect=[];//almacenamos los productos que el cliente quiere comprar.
 let show=[];
 
+
 do{
     
     //dependiendo de lo que el usuario ingrese, hacemos un filtrado.
